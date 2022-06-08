@@ -23,7 +23,26 @@ vector<NATO> makeDatabase();
 int main()
 {
     vector<NATO> vDB = makeDatabase();
+    do
+    {
+        cout << "\nEnter a name [xxx to end]\n";
+        string name;
+        getline(cin, name);
+        if (name == "xxx") break;
 
+        for (int i = 0; i < name.length(); i++)
+        {
+            char c = toupper(name[i]);
+            for (int j = 0; j < vDB.size(); j++)
+            {
+                if (c == vDB[j].symbol)
+                {
+                    cout << vDB[j].spelling << "\t" << vDB[j].pronuntiation << endl;
+                    break;
+                }
+            }
+        }
+    } while (true);
 
 }
 
